@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8405B6461EA6293500D30741 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 8405B6451EA6293500D30741 /* Task.m */; };
+		84744D361EA702DC00DAF667 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84744D351EA702DC00DAF667 /* TaskListViewController.m */; };
 		8486E6481EA60490004AA03D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E6471EA60490004AA03D /* main.m */; };
 		8486E64B1EA60490004AA03D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E64A1EA60490004AA03D /* AppDelegate.m */; };
 		8486E64E1EA60490004AA03D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E64D1EA60490004AA03D /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		8405B6441EA6293500D30741 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		8405B6451EA6293500D30741 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		84744D341EA702DC00DAF667 /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
+		84744D351EA702DC00DAF667 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 		8486E6431EA60490004AA03D /* iOS_StoryBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_StoryBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8486E6471EA60490004AA03D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8486E6491EA60490004AA03D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,6 +66,8 @@
 		8486E6451EA60490004AA03D /* iOS_StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
+				84744D341EA702DC00DAF667 /* TaskListViewController.h */,
+				84744D351EA702DC00DAF667 /* TaskListViewController.m */,
 				8486E6491EA60490004AA03D /* AppDelegate.h */,
 				8486E64A1EA60490004AA03D /* AppDelegate.m */,
 				8486E64C1EA60490004AA03D /* ViewController.h */,
@@ -158,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8405B6461EA6293500D30741 /* Task.m in Sources */,
+				84744D361EA702DC00DAF667 /* TaskListViewController.m in Sources */,
 				8486E64E1EA60490004AA03D /* ViewController.m in Sources */,
 				8486E64B1EA60490004AA03D /* AppDelegate.m in Sources */,
 				8486E6541EA60490004AA03D /* iOS_StoryBoard.xcdatamodeld in Sources */,
