@@ -1,35 +1,21 @@
 //
-//  TaskListViewController.m
+//  EditTaskController.m
 //  iOS_StoryBoard
 //
-//  Created by TMA103 on 4/19/17.
+//  Created by TMA103 on 4/20/17.
 //  Copyright © 2017 TMA. All rights reserved.
 //
 
-#import "TaskListViewController.h"
-#import "Task.h"
-#import "AddTaskController.h"
+#import "EditTaskController.h"
 
-@interface TaskListViewController ()
+@interface EditTaskController ()
 
 @end
 
-@implementation TaskListViewController
-
-@synthesize tasks = _tasks;
+@implementation EditTaskController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    self.tasks = [[NSMutableArray alloc] init];
-    
-    Task *task = [[Task alloc] initWithName:@"First task" done:NO];
-    [self.tasks addObject:task];
-    Task *doneTask = [[Task alloc] initWithName:@"Second task" done:YES];
-    [self.tasks addObject:doneTask];
-    
-    [self.tableView reloadData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -50,32 +36,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.tasks.count;
+    return 1;
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AddTaskSegue"]) {
-        UINavigationController *nav = segue.destinationViewController;
-        AddTaskController *addTask = [nav.viewControllers objectAtIndex:0];
-        addTask.taskListViewController = self;
-    }
-}
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *NotDoneCellIdentifier = @"NotDoneTaskCell";
-    static NSString *DoneCellIdentifier = @"DoneTaskCell";
-    Task *currentTask = [self.tasks objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    NSString *CellIdentifier = currentTask.done ? DoneCellIdentifier : NotDoneCellIdentifier;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text = currentTask.name;
+    // Configure the cell...
     
     return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.

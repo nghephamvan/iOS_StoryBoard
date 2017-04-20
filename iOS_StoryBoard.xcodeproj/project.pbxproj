@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		8405B6461EA6293500D30741 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 8405B6451EA6293500D30741 /* Task.m */; };
 		84744D361EA702DC00DAF667 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84744D351EA702DC00DAF667 /* TaskListViewController.m */; };
+		84744D391EA7614A00DAF667 /* AddTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84744D381EA7614A00DAF667 /* AddTaskController.m */; };
+		848138FC1EA8579000F5638D /* EditTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848138FB1EA8579000F5638D /* EditTaskController.m */; };
 		8486E6481EA60490004AA03D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E6471EA60490004AA03D /* main.m */; };
 		8486E64B1EA60490004AA03D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E64A1EA60490004AA03D /* AppDelegate.m */; };
 		8486E64E1EA60490004AA03D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8486E64D1EA60490004AA03D /* ViewController.m */; };
@@ -23,6 +25,10 @@
 		8405B6451EA6293500D30741 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
 		84744D341EA702DC00DAF667 /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
 		84744D351EA702DC00DAF667 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
+		84744D371EA7614A00DAF667 /* AddTaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskController.h; sourceTree = "<group>"; };
+		84744D381EA7614A00DAF667 /* AddTaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskController.m; sourceTree = "<group>"; };
+		848138FA1EA8579000F5638D /* EditTaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTaskController.h; sourceTree = "<group>"; };
+		848138FB1EA8579000F5638D /* EditTaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTaskController.m; sourceTree = "<group>"; };
 		8486E6431EA60490004AA03D /* iOS_StoryBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_StoryBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8486E6471EA60490004AA03D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8486E6491EA60490004AA03D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -80,6 +86,10 @@
 				8486E6461EA60490004AA03D /* Supporting Files */,
 				8405B6441EA6293500D30741 /* Task.h */,
 				8405B6451EA6293500D30741 /* Task.m */,
+				84744D371EA7614A00DAF667 /* AddTaskController.h */,
+				84744D381EA7614A00DAF667 /* AddTaskController.m */,
+				848138FA1EA8579000F5638D /* EditTaskController.h */,
+				848138FB1EA8579000F5638D /* EditTaskController.m */,
 			);
 			path = iOS_StoryBoard;
 			sourceTree = "<group>";
@@ -162,9 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84744D391EA7614A00DAF667 /* AddTaskController.m in Sources */,
 				8405B6461EA6293500D30741 /* Task.m in Sources */,
 				84744D361EA702DC00DAF667 /* TaskListViewController.m in Sources */,
 				8486E64E1EA60490004AA03D /* ViewController.m in Sources */,
+				848138FC1EA8579000F5638D /* EditTaskController.m in Sources */,
 				8486E64B1EA60490004AA03D /* AppDelegate.m in Sources */,
 				8486E6541EA60490004AA03D /* iOS_StoryBoard.xcdatamodeld in Sources */,
 				8486E6481EA60490004AA03D /* main.m in Sources */,

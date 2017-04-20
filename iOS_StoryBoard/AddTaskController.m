@@ -1,35 +1,26 @@
 //
-//  TaskListViewController.m
+//  AddTaskController.m
 //  iOS_StoryBoard
 //
 //  Created by TMA103 on 4/19/17.
 //  Copyright © 2017 TMA. All rights reserved.
 //
 
-#import "TaskListViewController.h"
-#import "Task.h"
 #import "AddTaskController.h"
+#import "Task.h"
+#import "TaskListViewController.h"
 
-@interface TaskListViewController ()
+@interface AddTaskController ()
 
 @end
 
-@implementation TaskListViewController
+@implementation AddTaskController
 
-@synthesize tasks = _tasks;
+@synthesize txtName = _txtName;
+@synthesize taskListViewController = _taskListViewController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    self.tasks = [[NSMutableArray alloc] init];
-    
-    Task *task = [[Task alloc] initWithName:@"First task" done:NO];
-    [self.tasks addObject:task];
-    Task *doneTask = [[Task alloc] initWithName:@"Second task" done:YES];
-    [self.tasks addObject:doneTask];
-    
-    [self.tableView reloadData];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -43,39 +34,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.tasks.count;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"AddTaskSegue"]) {
-        UINavigationController *nav = segue.destinationViewController;
-        AddTaskController *addTask = [nav.viewControllers objectAtIndex:0];
-        addTask.taskListViewController = self;
-    }
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
-
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *NotDoneCellIdentifier = @"NotDoneTaskCell";
-    static NSString *DoneCellIdentifier = @"DoneTaskCell";
-    Task *currentTask = [self.tasks objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    NSString *CellIdentifier = currentTask.done ? DoneCellIdentifier : NotDoneCellIdentifier;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    cell.textLabel.text = currentTask.name;
+    // Configure the cell...
     
     return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -121,4 +99,14 @@
 }
 */
 
+- (IBAction)btnCancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)btnDone:(id)sender {
+    Task *newTask = [[Task alloc] initWithName:self.txtName.text done:NO];
+    [self.taskListViewController.tasks addObject:newTask];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.taskListViewController.tableView reloadData];
+}
 @end
