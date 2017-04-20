@@ -27,6 +27,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <variation key="widthClass=compact">
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             </variation>
@@ -34,7 +35,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="4S5-11-TOJ" kind="push" id="niF-nt-hks"/>
+                                    <segue destination="4S5-11-TOJ" kind="push" identifier="editDoneTaskSegue" id="niF-nt-hks"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DoneTaskCell" textLabel="NFz-66-gwt" style="IBUITableViewCellStyleDefault" id="yxO-z6-2jA">
@@ -57,7 +58,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="4S5-11-TOJ" kind="push" id="WSy-Be-30G"/>
+                                    <segue destination="4S5-11-TOJ" kind="push" identifier="editNotDoneTaskSegue" id="WSy-Be-30G"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -68,6 +69,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tasks" id="vMD-wM-UH9">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="gBF-Dv-OZ5">
+                            <connections>
+                                <action selector="btnEditListTask:" destination="y0i-qd-4kY" id="rZj-8j-XDf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="5wI-IF-fEc">
                             <connections>
                                 <segue destination="ykF-so-Nhd" kind="modal" identifier="AddTaskSegue" id="m4S-jC-LDS"/>
@@ -82,7 +88,7 @@
         <!--Edit task-->
         <scene sceneID="yAY-cH-D0q">
             <objects>
-                <tableViewController id="4S5-11-TOJ" sceneMemberID="viewController">
+                <tableViewController id="4S5-11-TOJ" customClass="EditTaskController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="fmn-cZ-QQi">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,6 +104,9 @@
                                                     <rect key="frame" x="-25" y="-30" width="97" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="taskDataChanged:" destination="4S5-11-TOJ" eventType="editingChanged" id="yxo-t0-TAN"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -147,6 +156,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wFJ-UU-zDF">
                                                     <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="taskDataChanged:" destination="4S5-11-TOJ" eventType="valueChanged" id="fZP-e8-mZp"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -196,6 +208,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Edit task" id="UjG-pe-VHC"/>
+                    <connections>
+                        <outlet property="switchDone" destination="wFJ-UU-zDF" id="Nll-BC-hbd"/>
+                        <outlet property="txtName" destination="oN4-Yi-ztq" id="JN3-a9-sd6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ul3-0G-wrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

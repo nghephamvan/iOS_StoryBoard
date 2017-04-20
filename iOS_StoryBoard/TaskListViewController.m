@@ -9,13 +9,13 @@
 #import "TaskListViewController.h"
 #import "Task.h"
 #import "AddTaskController.h"
+#import "EditTaskController.h"
 
 @interface TaskListViewController ()
 
 @end
 
 @implementation TaskListViewController
-
 @synthesize tasks = _tasks;
 
 - (void)viewDidLoad {
@@ -43,6 +43,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -58,6 +67,9 @@
         UINavigationController *nav = segue.destinationViewController;
         AddTaskController *addTask = [nav.viewControllers objectAtIndex:0];
         addTask.taskListViewController = self;
+    } else if ([segue.identifier isEqualToString:@"editDoneTaskSegue"] || [segue.identifier isEqualToString:@"editNotDoneTaskSegue"]) {
+        EditTaskController *editTaskController = segue.destinationViewController;
+        editTaskController.task = [self.tasks objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     }
 }
 
@@ -77,6 +89,16 @@
     return cell;
 }
 
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -85,17 +107,30 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.tasks removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+
+- (IBAction)btnEditListTask:(id)sender {
+    self.editing = !self.editing;
+}
+
+//-(void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (editingStyle==UITableViewCellEditingStyleDelete) {
+//        [self.tasks removeObjectAtIndex:indexPath.row];
+//        [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        
+//    }
+//}
 
 /*
 // Override to support rearranging the table view.

@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Task;
 
 @interface EditTaskController : UITableViewController
-@property (weak, nonatomic) IBOutlet UITextField *txtName;
-@property (weak, nonatomic) IBOutlet UISwitch *switchDone;
+@property (strong, nonatomic) IBOutlet UITextField *txtName;
+@property (strong, nonatomic) IBOutlet UISwitch *switchDone;
+@property (strong, nonatomic) Task *task;
+
+- (IBAction)taskDataChanged:(id)sender;
 
 @end

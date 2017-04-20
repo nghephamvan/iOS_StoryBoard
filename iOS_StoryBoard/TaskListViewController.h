@@ -12,4 +12,5 @@
 
 @property (nonatomic, strong) NSMutableArray *tasks;
 
+- (IBAction)btnEditListTask:(id)sender;
 @end

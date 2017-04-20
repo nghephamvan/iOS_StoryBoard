@@ -11,6 +11,6 @@
 @interface AddTaskController : UITableViewController
 - (IBAction)btnCancel:(id)sender;
 - (IBAction)btnDone:(id)sender;
-@property (weak, nonatomic) IBOutlet UITextField *txtName;
-@property (weak, nonatomic) TaskListViewController *taskListViewController;
+@property (strong, nonatomic) IBOutlet UITextField *txtName;
+@property (strong, nonatomic) TaskListViewController *taskListViewController;
 @end
