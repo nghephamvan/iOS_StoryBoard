@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8405B6461EA6293500D30741 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 8405B6451EA6293500D30741 /* Task.m */; };
+		846F03331EA9B52800AB7C39 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 846F03321EA9B52800AB7C39 /* SearchResultsViewController.m */; };
 		84744D361EA702DC00DAF667 /* TaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84744D351EA702DC00DAF667 /* TaskListViewController.m */; };
 		84744D391EA7614A00DAF667 /* AddTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84744D381EA7614A00DAF667 /* AddTaskController.m */; };
 		848138FC1EA8579000F5638D /* EditTaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = 848138FB1EA8579000F5638D /* EditTaskController.m */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		8405B6441EA6293500D30741 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
 		8405B6451EA6293500D30741 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		846F03311EA9B52800AB7C39 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
+		846F03321EA9B52800AB7C39 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
 		84744D341EA702DC00DAF667 /* TaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskListViewController.h; sourceTree = "<group>"; };
 		84744D351EA702DC00DAF667 /* TaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskListViewController.m; sourceTree = "<group>"; };
 		84744D371EA7614A00DAF667 /* AddTaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskController.h; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				84744D381EA7614A00DAF667 /* AddTaskController.m */,
 				848138FA1EA8579000F5638D /* EditTaskController.h */,
 				848138FB1EA8579000F5638D /* EditTaskController.m */,
+				846F03311EA9B52800AB7C39 /* SearchResultsViewController.h */,
+				846F03321EA9B52800AB7C39 /* SearchResultsViewController.m */,
 			);
 			path = iOS_StoryBoard;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846F03331EA9B52800AB7C39 /* SearchResultsViewController.m in Sources */,
 				84744D391EA7614A00DAF667 /* AddTaskController.m in Sources */,
 				8405B6461EA6293500D30741 /* Task.m in Sources */,
 				84744D361EA702DC00DAF667 /* TaskListViewController.m in Sources */,

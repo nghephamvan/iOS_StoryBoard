@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TaskListViewController : UITableViewController
+@interface TaskListViewController : UITableViewController<UISearchBarDelegate, UITableViewDataSource> {
+    BOOL isFiltered;
+}
 
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, strong) NSMutableArray *tasks;
+@property (nonatomic, strong) NSMutableArray *filerTasks;
 
 - (IBAction)btnEditListTask:(id)sender;
 @end

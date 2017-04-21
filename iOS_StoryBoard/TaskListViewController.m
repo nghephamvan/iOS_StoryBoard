@@ -17,10 +17,11 @@
 
 @implementation TaskListViewController
 @synthesize tasks = _tasks;
+@synthesize filerTasks = _filerTasks;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.searchBar.delegate = self;
     
     self.tasks = [[NSMutableArray alloc] init];
     
@@ -52,6 +53,27 @@
     [super viewDidAppear:animated];
 }
 
+- (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchText.length == 0) {
+        isFiltered = NO;
+    } else {
+        isFiltered = YES;
+        self.filerTasks = [[NSMutableArray alloc] init];
+
+        for (Task *currentTask in self.tasks) {
+            NSRange range = [currentTask.name rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (range.location != NSNotFound) {
+                [self.filerTasks addObject:currentTask];
+            }
+        }
+    }
+    
+    [self.tableView reloadData];
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self.tableView resignFirstResponder];
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -59,6 +81,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (isFiltered) {
+        return self.filerTasks.count;
+    }
     return self.tasks.count;
 }
 
@@ -76,7 +101,12 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *NotDoneCellIdentifier = @"NotDoneTaskCell";
     static NSString *DoneCellIdentifier = @"DoneTaskCell";
-    Task *currentTask = [self.tasks objectAtIndex:indexPath.row];
+    Task *currentTask;
+    if (!isFiltered) {
+        currentTask = [self.tasks objectAtIndex:indexPath.row];
+    } else {
+        currentTask = [self.filerTasks objectAtIndex:indexPath.row];
+    }
     
     NSString *CellIdentifier = currentTask.done ? DoneCellIdentifier : NotDoneCellIdentifier;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
