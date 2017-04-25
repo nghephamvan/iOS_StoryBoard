@@ -158,7 +158,10 @@
     return YES;
 }
 
-
+-(void) searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    isFiltered = NO;
+    [self.tableView reloadData];
+}
 /*
 #pragma mark - Navigation
 
